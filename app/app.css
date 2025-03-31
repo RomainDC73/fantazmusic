@@ -1,8 +1,7 @@
 @import "tailwindcss";
-
 @import url("https://fonts.bunny.net/css?family=kanit:400,700");
 
-@theme {
+:root {
   --color-primary: #0D1321;
   --color-secondary: #C5D86D;
   --color-accent: #FFEDDF;
@@ -10,11 +9,16 @@
   --font-sans: "Kanit", sans-serif;
 }
 
-html, body {
-  @apply bg-white dark:bg-gray-950 text-primary;
+body {
   font-family: var(--font-sans);
+}
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+.theme-dark {
+  background: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+.theme-light {
+  background: var(--color-secondary);
+  color: var(--color-primary);
 }

@@ -1,7 +1,9 @@
-export function Welcome() {
+import { Page } from "../components/page";
+
+export default function Welcome() {
   return (
-    <main className="flex items-center justify-center h-screen">
+    <Page theme="dark">
       <h1 className="text-6xl font-bold">FANTAZ</h1>
-    </main>
+    </Page>
   );
 }
