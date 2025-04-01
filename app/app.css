@@ -11,6 +11,7 @@
 
 body {
   font-family: var(--font-sans);
+  background: var(--color-primary);
 }
 
 .theme-dark {
@@ -21,4 +22,25 @@ body {
 .theme-light {
   background: var(--color-secondary);
   color: var(--color-primary);
+}
+
+
+.scroll-link {
+  position: absolute;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.scroll-link.left {
+  left: 10%;
+}
+
+.scroll-link.right {
+  right: 10%;
 }
