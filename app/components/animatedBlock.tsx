@@ -1,17 +1,24 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "motion/react"
 
-export function AnimatedBlock() {
-  const { scrollYProgress } = useScroll(); // Récupérer la progression du scroll
-  const translateY = useTransform(scrollYProgress, [0, 1], [1000, -200]); // Transformation pour contrôler la position verticale
-  const opacity = useTransform(scrollYProgress, [0.1, 0.9], [0, 1]); // Transformation pour gérer l'opacité
-
+export default function Rotate({ children }: { children: React.ReactNode }) {
   return (
     <motion.div
-      style={{
-        translateY,
-        opacity,
+      // style={box}
+      animate={{
+        rotate: 360,
+        scale: 2,
+        transition: { duration: 2 },
       }}
-      className="fixed left-0 w-32 h-32 bg-pink-500"
-    />
+      transition={{ duration: 1 }}
+    >
+      {children}
+    </motion.div>
   );
 }
+
+// const box = {
+//   width: 100,
+//   height: 100,
+//   backgroundColor: "#f0f",
+//   borderRadius: 5,
+// }
