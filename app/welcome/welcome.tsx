@@ -15,10 +15,10 @@ const sections = [
 const randomOffsets = sections.map(() => Math.floor(Math.random() * 11) + 10);
 
 export default function Welcome() {
-  const [fontWeight, setFontWeight] = useState(200);
+  const [fontWeight, setFontWeight] = useState(500);
   const [letterSpacing, setLetterSpacing] = useState(0.25);
-  const [lastScrollY, setLastScrollY] = useState(0); // Dernier scroll
   const [isWaiting, setIsWaiting] = useState(false); // Indicateur de délai
+  const [showArrow, setShowArrow] = useState(true); // Etat pour gérer l'affichage de la flèche
 
   // Fonction pour générer un poids de police aléatoire
   const getRandomFontWeight = () => {
@@ -32,9 +32,16 @@ export default function Welcome() {
       const windowHeight = window.innerHeight;
       const scrollPercentage = scrollY / (document.body.scrollHeight - windowHeight);
 
+      // Masquer la flèche quand on commence à scroller
+      if (scrollY > 0 && showArrow) {
+        setShowArrow(false);
+      } else if (scrollY === 0 && !showArrow) {
+        setShowArrow(true);
+      }
+
       // Ne pas changer la graisse trop fréquemment, uniquement après un certain défilement
       if (!isWaiting) {
-        const newFontWeight = scrollPercentage > 0.2 ? getRandomFontWeight() : 200; 
+        const newFontWeight = scrollPercentage > 0.5 ? getRandomFontWeight() : 200; 
         const newLetterSpacing = Math.max(0.15, Math.min(0.5, 0.15 + scrollPercentage * 0.45));
 
         // Appliquer les nouveaux styles
@@ -56,7 +63,7 @@ export default function Welcome() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isWaiting]); // L'effet est déclenché uniquement quand `isWaiting` change
+  }, [isWaiting, showArrow]);
 
   return (
     <Page theme="dark">
@@ -64,6 +71,15 @@ export default function Welcome() {
         style={{ fontWeight: fontWeight, letterSpacing: letterSpacing }}>
         FANTAZ
       </h1>
+
+      {/* Flèche indicatrice de défilement */}
+      {showArrow && (
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </div>
+      )}
 
       {/* Conteneur avec grande hauteur pour permettre le scroll */}
       <div className="relative h-[300vh] w-full overflow-hidden">
