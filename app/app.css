@@ -1,15 +1,28 @@
 @import "tailwindcss";
+@import url("https://fonts.bunny.net/css?family=kanit:200,400,700");
 
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+:root {
+  --color-blue: #0D1321;
+  --color-green: #C5D86D;
+  --color-beige: #FFEDDF;
+
+  --font-sans: "Kanit", sans-serif;
 }
 
-html,
 body {
-  @apply bg-white dark:bg-gray-950;
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+  font-family: var(--font-sans);
+  background: var(--color-blue);
 }
+
+.theme-dark {
+  background: var(--color-blue);
+  color: var(--color-green);
+}
+
+.theme-light {
+  background: var(--color-green);
+  color: var(--color-blue);
+}
+
+
+
