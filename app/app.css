@@ -2,26 +2,26 @@
 @import url("https://fonts.bunny.net/css?family=kanit:200,400,700");
 
 :root {
-  --color-primary: #0D1321;
-  --color-secondary: #C5D86D;
-  --color-accent: #FFEDDF;
+  --color-blue: #0D1321;
+  --color-green: #C5D86D;
+  --color-beige: #FFEDDF;
 
   --font-sans: "Kanit", sans-serif;
 }
 
 body {
   font-family: var(--font-sans);
-  background: var(--color-primary);
+  background: var(--color-blue);
 }
 
 .theme-dark {
-  background: var(--color-primary);
-  color: var(--color-secondary);
+  background: var(--color-blue);
+  color: var(--color-green);
 }
 
 .theme-light {
-  background: var(--color-secondary);
-  color: var(--color-primary);
+  background: var(--color-green);
+  color: var(--color-blue);
 }
 
 
