@@ -1,5 +1,6 @@
 import { Page } from "../components/page";
 import { Link } from "react-router";
+import { useState, useEffect } from "react";
 
 // Tableau des sections
 const sections = [
@@ -14,9 +15,26 @@ const sections = [
 const randomOffsets = sections.map(() => Math.floor(Math.random() * 11) + 10);
 
 export default function Welcome() {
+  const [fontWeight, setFontWeight] = useState(200);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const scrollPercentage = scrollY / (document.body.scrollHeight - windowHeight);
+      const newFontWeight = Math.max(200, Math.min(900, 200 + Math.floor(scrollPercentage * 700)));
+      setFontWeight(newFontWeight);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  
   return (
     <Page theme="dark">
-      <h1 className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl font-bold">
+      <h1 className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl font-bold"
+        style={{ fontWeight: fontWeight }}>
         FANTAZ
       </h1>
 
