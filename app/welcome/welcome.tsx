@@ -1,4 +1,5 @@
 import { Page } from "../components/page";
+import { Link } from "react-router";
 
 export default function Welcome() {
   return (
@@ -7,14 +8,25 @@ export default function Welcome() {
         FANTAZ
       </h1>
 
-      {/* Bloc gauche */}
-      <div className="absolute left-0 top-[120vh] w-1/4 h-48 bg-pink-500"></div>
+      {/* Conteneur avec grande hauteur pour permettre le scroll */}
+      <div className="relative h-[300vh] w-full">
 
-      {/* Bloc droit */}
-      <div className="absolute right-0 top-[120vh] w-1/4 h-48 bg-blue-500"></div>
+        {/* Bloc EPs (gauche) */}
+        <Link to="/eps" className="absolute left-0 top-[100vh] w-1/4 h-48 bg-pink-500 flex items-center justify-center text-white text-2xl font-bold">
+          EPs
+        </Link>
 
-      {/* Contenu pour permettre le scroll */}
-      <div className="h-[200vh]"></div>
+        {/* Bloc Shows (droite) */}
+        <Link to="/shows" className="absolute right-0 top-[100vh] w-1/4 h-48 bg-blue-500 flex items-center justify-center text-white text-2xl font-bold">
+          Shows
+        </Link>
+
+        {/* Bloc Videos (droite, sous Shows) */}
+        <Link to="/videos" className="absolute right-0 top-[115vh] w-1/4 h-48 bg-green-500 flex items-center justify-center text-white text-2xl font-bold">
+          Videos
+        </Link>
+
+      </div>
     </Page>
   );
 }
