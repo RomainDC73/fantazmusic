@@ -16,25 +16,52 @@ const randomOffsets = sections.map(() => Math.floor(Math.random() * 11) + 10);
 
 export default function Welcome() {
   const [fontWeight, setFontWeight] = useState(200);
+  const [letterSpacing, setLetterSpacing] = useState(0.25);
+  const [lastScrollY, setLastScrollY] = useState(0); // Dernier scroll
+  const [isWaiting, setIsWaiting] = useState(false); // Indicateur de délai
+
+  // Fonction pour générer un poids de police aléatoire
+  const getRandomFontWeight = () => {
+    const randomValues = [200, 400, 500, 600, 700, 800, 900]; // Poids de police possibles
+    return randomValues[Math.floor(Math.random() * randomValues.length)];
+  };
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const scrollPercentage = scrollY / (document.body.scrollHeight - windowHeight);
-      const newFontWeight = Math.max(200, Math.min(900, 200 + Math.floor(scrollPercentage * 700)));
-      setFontWeight(newFontWeight);
+
+      // Ne pas changer la graisse trop fréquemment, uniquement après un certain défilement
+      if (!isWaiting) {
+        const newFontWeight = scrollPercentage > 0.2 ? getRandomFontWeight() : 200; 
+        const newLetterSpacing = Math.max(0.15, Math.min(0.5, 0.15 + scrollPercentage * 0.45));
+
+        // Appliquer les nouveaux styles
+        setLetterSpacing(newLetterSpacing);
+        setFontWeight(newFontWeight);
+
+        // Mettre en place un délai avant de pouvoir changer à nouveau la graisse
+        setIsWaiting(true);
+        
+        // Après 200ms, permettre de changer à nouveau
+        setTimeout(() => {
+          setIsWaiting(false);
+        }, 200); // 200ms de délai entre les changements
+      }
     };
+
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
-  
+  }, [isWaiting]); // L'effet est déclenché uniquement quand `isWaiting` change
+
   return (
     <Page theme="dark">
-      <h1 className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl font-bold"
-        style={{ fontWeight: fontWeight }}>
+      <h1 className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl tracking-wide font-bold"
+        style={{ fontWeight: fontWeight, letterSpacing: letterSpacing }}>
         FANTAZ
       </h1>
 
