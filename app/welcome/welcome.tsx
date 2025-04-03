@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { useState, useEffect } from "react";
 import ScrollIndicator from "~/components/ScrollIndicator";
 
-// Tableau des sections
+// Array of links
 const sections = [
   { name: "Khimaira", path: "/khimaira", color: "var(--color-green)" },
   { name: "EPs", path: "/eps", color: "var(--color-beige)" },
@@ -18,11 +18,11 @@ const randomOffsets = sections.map(() => Math.floor(Math.random() * 11) + 10);
 export default function Welcome() {
   const [fontWeight, setFontWeight] = useState(500);
   const [letterSpacing, setLetterSpacing] = useState(0.25);
-  const [isWaiting, setIsWaiting] = useState(false); // Indicateur de délai
+  const [isWaiting, setIsWaiting] = useState(false);
 
-  // Fonction pour générer un poids de police aléatoire
+  // Function to get a random font weight on scroll
   const getRandomFontWeight = () => {
-    const randomValues = [200, 400, 500, 600, 700, 800, 900]; // Poids de police possibles
+    const randomValues = [200, 400, 500, 600, 700, 800, 900];
     return randomValues[Math.floor(Math.random() * randomValues.length)];
   };
 
@@ -32,22 +32,18 @@ export default function Welcome() {
       const windowHeight = window.innerHeight;
       const scrollPercentage = scrollY / (document.body.scrollHeight - windowHeight);
 
-      // Ne pas changer la graisse trop fréquemment, uniquement après un certain défilement
       if (!isWaiting) {
-        const newFontWeight = scrollPercentage > 0.1 ? getRandomFontWeight() : 200;
+        const newFontWeight = scrollPercentage > 0.1 ? getRandomFontWeight() : 50;
         const newLetterSpacing = Math.max(0.15, Math.min(0.5, 0.15 + scrollPercentage * 0.45));
 
-        // Appliquer les nouveaux styles
         setLetterSpacing(newLetterSpacing);
         setFontWeight(newFontWeight);
 
-        // Mettre en place un délai avant de pouvoir changer à nouveau la graisse
         setIsWaiting(true);
         
-        // Après 200ms, permettre de changer à nouveau
         setTimeout(() => {
           setIsWaiting(false);
-        }, 200); // 200ms de délai entre les changements
+        }, 200);
       }
     };
 
@@ -64,10 +60,10 @@ export default function Welcome() {
         FANTAZ
       </h1>
 
-      {/* Flèche de scroll */}
+      {/* Scroll Arrow */}
       <ScrollIndicator theme="dark" />
 
-      {/* Conteneur avec grande hauteur pour permettre le scroll */}
+      {/* Container with high height to allow down scroll */}
       <div className="relative h-[300vh] w-full overflow-hidden">
         {sections.map((section, index) => (
           <Link
