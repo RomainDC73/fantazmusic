@@ -61,7 +61,7 @@ export default function Welcome() {
       </h1>
 
       {/* Scroll Arrow */}
-      <ScrollIndicator theme="dark" />
+      <ScrollIndicator />
 
       {/* Container with high height to allow down scroll */}
       <div className="relative h-[300vh] w-full overflow-hidden">
