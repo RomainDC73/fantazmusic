@@ -1,5 +1,5 @@
 import type { Route } from "./+types/eps";
-import EPs from "~/eps/eps";
+import EPs from "~/eps/EPs";
 
 export function meta({}: Route.MetaArgs) {
   return [

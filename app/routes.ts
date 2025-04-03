@@ -5,4 +5,5 @@ import { type RouteConfig,
 
 export default [
     index("routes/home.tsx"),
+    route("eps", "routes/eps.tsx"),
 ] satisfies RouteConfig;
