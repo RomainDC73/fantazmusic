@@ -8,9 +8,12 @@ export default function EPs() {
       {/* Bloc "Fantaz" avec la flèche */}
       <BackToHome />
 
-      {/* Titre principal dans un bloc style "justifié à gauche", sous BackToHome */}
-      <div className="relative w-full md:w-1/2 p-5 bg-[var(--color-green)] text-[var(--color-blue)] rounded-lg mt-20 transform rotate-[-5deg] left-0 overflow-hidden">
-        <h1 className="text-5xl font-bold text-left transform rotate-[0deg]">
+      {/* Titre principal dans un petit bloc incliné, collé à gauche */}
+      <div
+        className="absolute top-[120px] -left-5 rotate-[-5deg] bg-[var(--color-green)] text-[var(--color-blue)] rounded-lg px-10 py-3"
+        style={{ width: "max-content" }}
+      >
+        <h1 className="text-4xl font-bold rotate-[5deg]">
           EPs
         </h1>
       </div>
