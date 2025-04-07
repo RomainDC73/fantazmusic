@@ -20,7 +20,9 @@ export default function EPs() {
 
       {/* Scroll Indicator */}
       <ScrollIndicator />
-
+      <div>
+        
+      </div>
       {/* Contenu de la page */}
     </Page>
   );
