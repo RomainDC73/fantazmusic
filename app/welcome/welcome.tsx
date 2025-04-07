@@ -75,7 +75,7 @@ export default function Welcome() {
                 : "left-0 -translate-x-6 md:left-1/2 md:-translate-x-1/2"
             } 
               w-2/4 md:w-[40%] lg:w-[30%] h-18 flex items-center justify-center text-[var(--color-blue)] text-2xl font-extralight
-              rounded-sm transform rotate-[5deg] transition-transform duration-300 ease-in-out`}
+              rounded-sm transform rotate-[5deg] transition-transform duration-300 ease-in-out hover:font-normal hover:scale-[1.03]`}
             style={{
               backgroundColor: section.color,
               top: `${105 + randomOffsets.slice(0, index).reduce((a, b) => a + b, 0)}vh`,
