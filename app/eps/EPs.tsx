@@ -5,10 +5,10 @@ import EpCard from "~/components/EpCard";
 
 const eps = [
   {
-    title: "Premier EP",
-    year: "2020",
-    cover: "/covers/premier-ep.jpg",
-    bandcampEmbedUrl: "https://bandcamp.com/EmbeddedPlayer/album=123456789/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=none/transparent=true/",
+    title: "Mirrors",
+    year: "2023",
+    cover: "https://f4.bcbits.com/img/a0940520493_16.jpg",
+    bandcampEmbedUrl: "https://bandcamp.com/EmbeddedPlayer/album=2046215295/size=small/bgcol=ffffff/linkcol=63b2cc/artwork=none/transparent=true/",
     bandcampLink: "https://fantaz.bandcamp.com/album/premier-ep"
   },
   // ... 4 autres disques ici

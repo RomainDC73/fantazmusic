@@ -22,6 +22,7 @@ const EpCard: FC<EpCardProps> = ({ title, year, cover, bandcampEmbedUrl, bandcam
           style={{ border: 0, width: "100%", height: 120 }}
           src={bandcampEmbedUrl}
           seamless
+          title={`Lecteur Bandcamp - ${title}`}
         >
           <a href={bandcampLink}>Listen on Bandcamp</a>
         </iframe>
