@@ -1,6 +1,18 @@
 import { Page } from "../components/page";
 import ScrollIndicator from "~/components/ScrollIndicator";
 import BackToHome from "~/components/BackToHome";
+import EpCard from "~/components/EpCard";
+
+const eps = [
+  {
+    title: "Premier EP",
+    year: "2020",
+    cover: "/covers/premier-ep.jpg",
+    bandcampEmbedUrl: "https://bandcamp.com/EmbeddedPlayer/album=123456789/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=none/transparent=true/",
+    bandcampLink: "https://fantaz.bandcamp.com/album/premier-ep"
+  },
+  // ... 4 autres disques ici
+];
 
 export default function EPs() {
   return (
@@ -20,9 +32,9 @@ export default function EPs() {
 
       {/* Scroll Indicator */}
       <ScrollIndicator />
-      <div>
-        
-      </div>
+      {eps.map((ep) => (
+  <EpCard key={ep.title} {...ep} />
+))}
       {/* Contenu de la page */}
     </Page>
   );
