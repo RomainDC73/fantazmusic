@@ -5,12 +5,12 @@ type EpCardProps = {
   year: string;
   cover: string;
   bandcampEmbedUrl: string;
-  bandcampLink: string;
+  listenLink: string;
 };
 
-const EpCard: FC<EpCardProps> = ({ title, year, cover, bandcampEmbedUrl, bandcampLink }) => {
+const EpCard: FC<EpCardProps> = ({ title, year, cover, bandcampEmbedUrl, listenLink }) => {
   return (
-    <div className="flex flex-row w-full max-w-4xl mx-auto mt-12 p-4 gap-6">
+    <div className="flex flex-row w-full max-w-4xl lg:max-w-3xl xl:max-w-2xl mx-auto mt-12 p-4 lg:p-3 gap-6">
       {/* Cover image */}
       <div className="w-1/3">
         <img
@@ -39,10 +39,10 @@ const EpCard: FC<EpCardProps> = ({ title, year, cover, bandcampEmbedUrl, bandcam
         </div>
 
         <a
-          href={bandcampLink}
+          href={listenLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-[var(--color-green)] text-[var(--color-blue)] hover:brightness-110 transition w-auto self-start"
+          className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-[var(--color-green)] text-[var(--color-blue)] hover:brightness-110 transition w-auto self-start"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
