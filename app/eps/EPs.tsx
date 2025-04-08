@@ -57,11 +57,8 @@ export default function EPs() {
         </h1>
       </div>
 
-      {/* Scroll Indicator */}
-      <ScrollIndicator />
-
       {/* EPs Container */}
-      <div className="flex flex-wrap justify-center gap-6 mt-40">
+      <div className="flex flex-wrap justify-center gap-6 mt-40 mb-20">
         {eps.map((ep) => (
           <EpCard key={ep.title} {...ep} />
         ))}
