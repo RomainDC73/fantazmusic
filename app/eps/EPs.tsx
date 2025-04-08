@@ -22,7 +22,7 @@ const eps = [
     title: "Mirrors",
     year: "2023",
     cover: "https://f4.bcbits.com/img/a0940520493_16.jpg",
-    bandcampEmbedUrl: "https://bandcamp.com/EmbeddedPlayer/album=2046215295/size=small/bgcol=ffffff/linkcol=63b2cc/artwork=none/transparent=true/",
+    bandcampEmbedUrl: "https://bandcamp.com/EmbeddedPlayer/album=2046215295/size=small/bgcol=ffffff/linkcol=f0f/artwork=none/transparent=true/",
     bandcampLink: "https://fantaz.bandcamp.com/album/premier-ep"
   },
   // Ajoute ici les 3 autres disques
