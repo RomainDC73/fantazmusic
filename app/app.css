@@ -15,13 +15,19 @@ body {
 }
 
 .theme-dark {
-  background: var(--color-blue);
+  background: transparent;
   color: var(--color-green);
+
 }
 
 .theme-light {
   background: var(--color-green);
   color: var(--color-blue);
+}
+
+@keyframes subtleFade {
+  0%, 60% { opacity: 0.01; }
+  20% { opacity: 0.05; }
 }
 
 
