@@ -13,11 +13,14 @@ const EpCard: FC<EpCardProps> = ({ title, year, cover, bandcampEmbedUrl, bandcam
     <div className="flex flex-row w-full max-w-4xl mx-auto mt-12 p-4 rounded-xl shadow-md gap-6">
       
       {/* Image à gauche */}
-      <div className="w-1/3">
+      <div className="w-1/3 ">
         <img
           src={cover}
           alt={title}
           className="w-full h-auto object-cover rounded-lg"
+          style={{
+            boxShadow: "-8px -8px 0 var(--color-beige)",
+          }}
         />
       </div>
 
@@ -25,7 +28,7 @@ const EpCard: FC<EpCardProps> = ({ title, year, cover, bandcampEmbedUrl, bandcam
       <div className="w-2/3 flex flex-col justify-between">
         <div>
           <h2 className="text-2xl font-bold">{title}</h2>
-          <p className="text-sm text-[var(--color-beige)] opacity-70 mb-3">{year}</p>
+          <p className="text-sm text-[var(--color-beige)] font-thin italic opacity-70 mb-3">{year}</p>
 
           <iframe
             style={{ border: 0, width: "100%", height: 120 }}
