@@ -11,7 +11,6 @@ export default function Shows() {
       country: string;
     };
     datetime: string;
-    offers?: { url: string }[];
   }
 
   const [events, setEvents] = useState<Event[]>([]);
@@ -40,45 +39,32 @@ export default function Shows() {
       >
         <h1 className="text-4xl font-bold rotate-[5deg]">Shows</h1>
       </div>
-      <div>
-
-      </div>
-        
 
       <div className="mt-20 px-4">
-      <h2 className="text-2xl text-center mt-20 mb-10">
-        Upcoming live gigs and DJ sets near you!
+        <h2 className="text-2xl text-center mt-20 mb-10">
+          Upcoming live gigs and DJ sets <br /> near you!
         </h2>
+
         {loading ? (
-          <p className="text-gray-500">Chargement des concerts...</p>
+          <p className="font-thin">Loading upcoming gigs...</p>
         ) : events.length === 0 ? (
-          <p className="text-gray-700">Pas de concerts à venir.</p>
+          <p className="font-normal">No gigs announced for now... 🤷</p>
         ) : (
           <ul className="space-y-6">
             {events.map((event) => (
-              <li key={event.id} className="border border-gray-300 p-4 rounded-xl shadow-sm">
-                <div className="text-xl font-semibold">{event.venue.name}</div>
-                <div className="text-gray-600">
-                  {new Date(event.datetime).toLocaleDateString("fr-FR", {
+              <li key={event.id} className="border border-[var(--color-blue)] p-4 rounded-lg shadow-sm">
+                <div className="text-lg font-thin italic">
+                  {new Date(event.datetime).toLocaleDateString(undefined, {
                     weekday: "long",
                     day: "numeric",
                     month: "long",
                     year: "numeric",
                   })}
                 </div>
-                <div className="text-sm text-gray-500">
+                <div className="text-lg font-semibold">
                   {event.venue.city}, {event.venue.country}
                 </div>
-                {(event.offers?.length ?? 0) > 0 && event.offers[0]?.url && (
-                  <a
-                    href={event.offers?.[0]?.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block mt-3 px-4 py-2 bg-[var(--color-green)] text-white rounded-lg hover:bg-green-700 transition"
-                  >
-                    Billets
-                  </a>
-                )}
+                <div className="text-lg font-normal">{event.venue.name}</div>
               </li>
             ))}
           </ul>
