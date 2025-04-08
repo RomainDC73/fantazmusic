@@ -46,7 +46,22 @@ export default function Shows() {
         </h2>
 
         {loading ? (
-          <p className="font-thin">Loading upcoming gigs...</p>
+          <div className="flex justify-center items-center space-x-2">
+            <svg
+              className="animate-spin h-8 w-8 text-[var(--color-blue)]"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"></circle>
+              <path d="M2 12a10 10 0 1 1 20 0 10 10 0 0 1-20 0z" fill="none"></path>
+            </svg>
+            <p className="font-thin">Loading...</p>
+          </div>
         ) : events.length === 0 ? (
           <p className="font-normal">No gigs announced for now... 🤷</p>
         ) : (
