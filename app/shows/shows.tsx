@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Page } from "../components/page";
 import BackToHome from "~/components/BackToHome";
 import Nav from "~/components/Nav";
+import Footer from "~/components/Footer";
 
 export default function Shows() {
   interface Event {
@@ -43,7 +44,7 @@ export default function Shows() {
         <h1 className="text-4xl font-bold rotate-[5deg]">Shows</h1>
       </div>
 
-      <div className="mt-20 px-4">
+      <div className="mt-40 px-4">
         <h2 className="text-2xl text-center mt-20 mb-10">
           Upcoming live gigs and DJ sets <br /> near you!
         </h2>
@@ -88,6 +89,8 @@ export default function Shows() {
           </ul>
         )}
       </div>
+      <Footer />
+
     </Page>
   );
 }
