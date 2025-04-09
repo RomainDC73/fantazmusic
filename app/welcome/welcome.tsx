@@ -35,10 +35,10 @@ export default function Welcome() {
       const currentScrollTop = window.scrollY;
       if (currentScrollTop > lastScrollTop && currentScrollTop > 0) {
         setShowSocial(false);
-      } else {
+      } else if (currentScrollTop < 20) {
         setShowSocial(true);
       }
-      setLastScrollTop(currentScrollTop <= 0 ? 0 : currentScrollTop); // For Mobile or negative scrolling
+      setLastScrollTop(currentScrollTop);
 
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
@@ -79,6 +79,7 @@ export default function Welcome() {
       rotate: Math.random() * 60 - 30, // -30° to +30°
       opacity: Math.random() * 0 + 0.02, // 0.05 to 0.15
       size: Math.random() * 8 + 6, // text-6xl to text-[14xl]
+      duration: 6 + Math.random() * 4, // 6s to 10s
     }));
     setBgLetters(randomLetters);
   }, []);
