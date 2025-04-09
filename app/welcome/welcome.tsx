@@ -21,6 +21,8 @@ export default function Welcome() {
   const [letterSpacing, setLetterSpacing] = useState(0.25);
   const [isWaiting, setIsWaiting] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [showSocial, setShowSocial] = useState(true);
+  const [lastScrollTop, setLastScrollTop] = useState(0);
 
   // Function to get a random font weight on scroll
   const getRandomFontWeight = () => {
@@ -30,6 +32,14 @@ export default function Welcome() {
 
   useEffect(() => {
     const handleScroll = () => {
+      const currentScrollTop = window.scrollY;
+      if (currentScrollTop > lastScrollTop && currentScrollTop > 0) {
+        setShowSocial(false);
+      } else {
+        setShowSocial(true);
+      }
+      setLastScrollTop(currentScrollTop <= 0 ? 0 : currentScrollTop); // For Mobile or negative scrolling
+
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const scrollPercentage = scrollY / (document.body.scrollHeight - windowHeight);
@@ -93,7 +103,9 @@ export default function Welcome() {
           </span>
         ))}
       </div>
+      <Social visible={showSocial} />
 
+      {/* Back to Home */}
       <h1
         className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl tracking-wide font-bold"
         style={{ fontWeight: fontWeight, letterSpacing: letterSpacing }}
