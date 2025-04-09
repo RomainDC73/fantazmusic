@@ -2,6 +2,7 @@ import { Page } from "../components/page";
 import { Link } from "react-router";
 import { useState, useEffect } from "react";
 import ScrollIndicator from "~/components/ScrollIndicator";
+import Social from "~/components/Social";
 
 // Array of links
 const sections = [
