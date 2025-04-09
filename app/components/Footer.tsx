@@ -1,13 +1,13 @@
-import { FaInstagram, FaFacebook, FaYoutube } from "react-icons/fa";  // Import des icônes
+import { FaInstagram, FaFacebook, FaYoutube } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();  // Récupérer l'année actuelle
+  const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-[var(--color-blue)] text-white py-6 mt-auto">
+    <footer className="py-6 mt-32">
       <div className="container mx-auto text-center">
-        {/* Section des icônes sociales */}
+
         <motion.div
           className="flex justify-center space-x-4"
           initial={false}
@@ -25,9 +25,8 @@ export default function Footer() {
           </a>
         </motion.div>
   
-        {/* Texte et année */}
-        <p className="text-sm mt-4">© {currentYear} Fantaz. All rights reserved.</p>
-        <p className="text-sm">Made with ❤️ by Fantaz</p>
+        <p className="font-thin text-sm mt-4">© {currentYear} Fantaz. All rights reserved.</p>
+        <p className="font-thin text-sm">Made by Fantaz with his bare fucking hands.👋</p>
       </div>
     </footer>
   );
