@@ -2,6 +2,7 @@ import { Page } from "../components/page";
 import { Link } from "react-router";
 import { useState, useEffect } from "react";
 import ScrollIndicator from "~/components/ScrollIndicator";
+import Social from "~/components/Social";
 
 // Array of links
 const sections = [
@@ -20,6 +21,8 @@ export default function Welcome() {
   const [letterSpacing, setLetterSpacing] = useState(0.25);
   const [isWaiting, setIsWaiting] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [showSocial, setShowSocial] = useState(true);
+  const [lastScrollTop, setLastScrollTop] = useState(0);
 
   // Function to get a random font weight on scroll
   const getRandomFontWeight = () => {
@@ -29,6 +32,14 @@ export default function Welcome() {
 
   useEffect(() => {
     const handleScroll = () => {
+      const currentScrollTop = window.scrollY;
+      if (currentScrollTop > lastScrollTop && currentScrollTop > 0) {
+        setShowSocial(false);
+      } else if (currentScrollTop < 20) {
+        setShowSocial(true);
+      }
+      setLastScrollTop(currentScrollTop);
+
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const scrollPercentage = scrollY / (document.body.scrollHeight - windowHeight);
@@ -68,6 +79,7 @@ export default function Welcome() {
       rotate: Math.random() * 60 - 30, // -30° to +30°
       opacity: Math.random() * 0 + 0.02, // 0.05 to 0.15
       size: Math.random() * 8 + 6, // text-6xl to text-[14xl]
+      duration: 6 + Math.random() * 4, // 6s to 10s
     }));
     setBgLetters(randomLetters);
   }, []);
@@ -92,7 +104,9 @@ export default function Welcome() {
           </span>
         ))}
       </div>
+      <Social visible={showSocial} />
 
+      {/* Back to Home */}
       <h1
         className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl tracking-wide font-bold"
         style={{ fontWeight: fontWeight, letterSpacing: letterSpacing }}
