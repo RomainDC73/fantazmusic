@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Page } from "../components/page";
 import BackToHome from "~/components/BackToHome";
+import Nav from "~/components/Nav";
 
 export default function Shows() {
   interface Event {
@@ -32,6 +33,8 @@ export default function Shows() {
   return (
     <Page theme="light">
       <BackToHome />
+      <Nav />
+      {/* H1 Title */}
 
       <div
         className="absolute top-[120px] -left-5 rotate-[-5deg] bg-[var(--color-blue)] text-[var(--color-green)] rounded-lg px-10 py-3"

@@ -7,10 +7,13 @@ import { sections } from "~/data/sections"; // Import des sections
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Fonction pour ouvrir et fermer le menu
+  // Function to toggle the menu open/close
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  // Detect active theme
+  const theme = document.body.classList.contains("theme-light") ? "light" : "dark";
 
   return (
     <>
@@ -27,10 +30,14 @@ export default function Nav() {
 
       {/* Overlay Menu */}
       {isOpen && (
-        <div className="fixed inset-0 bg-black/90 z-40 flex flex-col items-center justify-center space-y-8 text-3xl font-light">
+        <div
+          className={`fixed inset-0 z-40 flex flex-col items-center justify-center space-y-8 text-3xl font-light ${
+            theme === "light" ? "bg-white text-black" : "bg-black/90 text-white"
+          }`} // Adjust background and text color based on theme
+        >
           <button
             className="absolute top-4 right-4 hover:opacity-80"
-            onClick={toggleMenu} // Ferme le menu
+            onClick={toggleMenu}
             aria-label="Close menu"
           >
             <LiaTimesSolid size={32} />
@@ -41,7 +48,7 @@ export default function Nav() {
               key={section.path}
               to={section.path}
               className="hover:font-normal transition-all"
-              onClick={toggleMenu} // Fermer le menu au clic
+              onClick={toggleMenu}
             >
               {section.name}
             </Link>

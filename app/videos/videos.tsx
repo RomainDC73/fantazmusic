@@ -1,10 +1,13 @@
 import { Page } from "../components/page";
 import BackToHome from "~/components/BackToHome";
+import Nav from "~/components/Nav";
 
 export default function Videos() {
     return (
         <Page theme="dark">
         <BackToHome />
+        <Nav />
+        {/* H1 Title */}
         <div
             className="absolute top-[120px] -left-5 rotate-[-5deg] bg-[var(--color-green)] text-[var(--color-blue)] rounded-lg px-10 py-3"
             style={{ width: "max-content" }}
