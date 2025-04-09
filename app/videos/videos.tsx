@@ -1,6 +1,7 @@
 import { Page } from "../components/page";
 import BackToHome from "~/components/BackToHome";
 import Nav from "~/components/Nav";
+import Footer from "~/components/Footer";
 
 export default function Videos() {
     return (
@@ -22,6 +23,7 @@ export default function Videos() {
             Live set or DJ gigs by Fantaz
             </h2>
         </div>
+        <Footer />
         </Page>
     );
     }
