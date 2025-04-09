@@ -32,7 +32,7 @@ export default function Nav() {
       {isOpen && (
         <div
           className={`fixed inset-0 z-40 flex flex-col items-center justify-center space-y-8 text-3xl font-light ${
-            theme === "light" ? "bg-white text-black" : "bg-black/90 text-white"
+            theme === "light" ? "bg-white text-[var(--color-beige)]" : "bg-black/90 text-[var(--color-beige)]"
           }`} // Adjust background and text color based on theme
         >
           <button
