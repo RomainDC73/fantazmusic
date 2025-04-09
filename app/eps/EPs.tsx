@@ -9,7 +9,7 @@ export default function EPs() {
     <Page theme="dark">
       {/* Header block to go back to home page */}
       <BackToHome />
-
+      <Nav />
       {/* H1 Title */}
       <div
         className="absolute top-[120px] -left-5 rotate-[-5deg] bg-[var(--color-green)] text-[var(--color-blue)] rounded-lg px-10 py-3"
