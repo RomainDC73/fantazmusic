@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router";
 import { FaBars, FaTimes } from "react-icons/fa"; // Import des icônes hamburger et close de react-icons
-import { sections } from "~/sections/sections"; // Import des sections
+import { sections } from "~/data/sections"; // Import des sections
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);

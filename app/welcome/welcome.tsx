@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { useState, useEffect } from "react";
 import ScrollIndicator from "~/components/ScrollIndicator";
 import Social from "~/components/Social";
-import { sections } from "~/sections/sections";
+import { sections } from "~/data/sections";
 
 const randomOffsets = sections.map(() => Math.floor(Math.random() * 11) + 10);
 
