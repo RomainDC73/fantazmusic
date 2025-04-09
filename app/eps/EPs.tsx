@@ -2,6 +2,7 @@ import { Page } from "../components/page";
 import Nav from "~/components/Nav";
 import BackToHome from "~/components/BackToHome";
 import EpCard from "~/components/EpCard";
+import Footer from "~/components/Footer";  // Import du Footer
 import { eps } from "~/data/eps";
 
 export default function EPs() {
@@ -10,6 +11,7 @@ export default function EPs() {
       {/* Header block to go back to home page */}
       <BackToHome />
       <Nav />
+
       {/* H1 Title */}
       <div
         className="absolute top-[120px] -left-5 rotate-[-5deg] bg-[var(--color-green)] text-[var(--color-blue)] rounded-lg px-10 py-3"
@@ -26,6 +28,9 @@ export default function EPs() {
           <EpCard key={ep.title} {...ep} />
         ))}
       </div>
+
+      {/* Footer ajouté ici */}
+      <Footer />
     </Page>
   );
 }
