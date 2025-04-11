@@ -8,5 +8,7 @@ export default [
     route("eps", "routes/eps.tsx"),
     route("shows", "routes/shows.tsx"),
     route("videos", "routes/videos.tsx"),
+    route("radio", "routes/radio.tsx"),
+
 
 ] satisfies RouteConfig;
