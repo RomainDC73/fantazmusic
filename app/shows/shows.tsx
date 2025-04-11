@@ -46,7 +46,7 @@ export default function Shows() {
 
       <div className="mt-40 px-4">
         <h2 className="text-2xl text-center mt-20 mb-10">
-          Upcoming live gigs and DJ sets <br /> near you!
+          Upcoming live gigs <br/>and DJ sets near you!
         </h2>
 
         {loading ? (
