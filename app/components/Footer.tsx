@@ -25,8 +25,8 @@ export default function Footer() {
           </a>
         </motion.div>
   
-        <p className="font-thin text-sm mt-4">© {currentYear} Fantaz. All rights reserved.</p>
-        <p className="font-thin text-sm">Made by Fantaz with his bare fucking hands.👋</p>
+        <p className="font-thin text-xs mt-4">© {currentYear} Fantaz. All rights reserved.</p>
+        <p className="font-thin text-xs">Made by Fantaz with his bare fucking hands.👋</p>
       </div>
     </footer>
   );
