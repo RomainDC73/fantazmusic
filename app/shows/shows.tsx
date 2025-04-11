@@ -35,8 +35,7 @@ export default function Shows() {
     <Page theme="light">
       <BackToHome />
       <Nav />
-      {/* H1 Title */}
-
+      
       <div
         className="absolute top-[120px] -left-5 rotate-[-5deg] bg-[var(--color-blue)] text-[var(--color-green)] rounded-lg px-10 py-3"
         style={{ width: "max-content" }}
