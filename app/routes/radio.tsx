@@ -8,6 +8,6 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function ShowsPage() {
+export default function RadioPage() {
   return <Radio />;
 }
