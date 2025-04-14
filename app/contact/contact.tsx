@@ -1,10 +1,55 @@
+import { useState } from "react";
 import { Page } from "../components/page";
 import BackToHome from "~/components/BackToHome";
 import Nav from "~/components/Nav";
 import Footer from "~/components/Footer";
 
 export default function Contact() {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("sending");
+    const formData = new FormData(event.currentTarget);
+    const data = {
+      firstName: formData.get("firstName"),
+      lastName: formData.get("lastName"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const res = await fetch("http://localhost:3000/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        setStatus("sent");
+        event.currentTarget.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      setStatus("error");
+    }
+    if (status === "sent") {
+      alert("Message sent successfully!");
+    } else if (status === "error") {
+      alert("Error sending message. Please try again later.");
+    } else {
+      alert("Sending message...");
+      setTimeout(() => {
+        setStatus("idle");
+      }
+      , 2000
+      )
+    }
+  }
+
   return (
     <Page theme="dark">
       <BackToHome />
@@ -59,9 +104,16 @@ export default function Contact() {
           <button
             type="submit"
             className="bg-[var(--color-green)] text-[var(--color-blue)] font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity"
+            disabled={status === "sending"}
           >
-            Send
+            {status === "sending" ? "Sending..." : "Send"}
           </button>
+          {status === "sent" && (
+            <p className="text-green-400 text-sm text-center mt-4">Message sent successfully!</p>
+          )}
+          {status === "error" && (
+            <p className="text-red-400 text-sm text-center mt-4">Error sending message. Please try again later.</p>
+          )}
         </form>
       </div>
 
