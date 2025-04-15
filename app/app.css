@@ -25,6 +25,13 @@ body {
   color: var(--color-blue);
 }
 
+.custom-placeholder::placeholder {
+  font-weight: 100; /* équivalent à font-thin */
+  font-style: italic;
+  color: var(--color-blue);
+}
+
+
 @keyframes subtleFade {
   0%, 60% { opacity: 0.01; }
   20% { opacity: 0.05; }

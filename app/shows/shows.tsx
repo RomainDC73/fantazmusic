@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Page } from "../components/page";
+import { Page } from "../components/Page";
 import BackToHome from "~/components/BackToHome";
 import Nav from "~/components/Nav";
 import Footer from "~/components/Footer";
