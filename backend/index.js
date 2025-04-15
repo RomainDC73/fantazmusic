@@ -13,7 +13,11 @@ app.use(express.json());
 
 // Route POST /contact
 app.post("/contact", async (req, res) => {
-    const { firstName, lastName, email, message } = req.body;
+    const { firstName, lastName, email, message, botField } = req.body;
+
+    if (botField) {
+      return res.status(400).json({ message: "Bot detected" });
+    }
   
     const transporter = nodemailer.createTransport({
       host: "ssl0.ovh.net",

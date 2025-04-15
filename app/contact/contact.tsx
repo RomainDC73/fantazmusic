@@ -10,6 +10,7 @@ export default function Contact() {
     lastName: "",
     email: "",
     message: "",
+    botField: "",
   });
 
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
@@ -23,6 +24,13 @@ export default function Contact() {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    // Check if the bot field is filled
+    if (formData.botField) {
+      console.warn("Bot field filled, ignoring submission.");
+      return;
+    }
+
     setStatus("sending");
 
     try {
@@ -41,6 +49,7 @@ export default function Contact() {
           lastName: "",
           email: "",
           message: "",
+          botField: "",
         });
       } else {
         setStatus("error");
@@ -64,9 +73,7 @@ export default function Contact() {
       </div>
 
       <div className="mt-40 px-4 max-w-3xl mx-auto">
-        <h2 className="text-2xl text-center mt-20 mb-10">
-          Let's get in touch!
-        </h2>
+        <h2 className="text-2xl text-center mt-20 mb-10">Let's get in touch!</h2>
 
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div className="flex flex-col md:flex-row gap-4">
@@ -87,6 +94,12 @@ export default function Contact() {
               onChange={handleChange}
               className="flex-1 p-3 rounded-lg bg-white text-black placeholder-gray-500"
               required
+            />
+            <input
+              type="text"
+              name="botField"
+              className="hidden"
+              autoComplete="off"
             />
           </div>
 
