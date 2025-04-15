@@ -39,13 +39,13 @@ export default function Khimaira() {
                 src="https://bandcamp.com/EmbeddedPlayer/album=1353007484/size=large/bgcol=ffffff/linkcol=63b2cc/artwork=none/transparent=true/"
                 seamless
             >
-                <a href="https://khimaira.bandcamp.com/album/khimaira">Khimaira by Khimaira</a>
+                <a href="https://fantaz.bandcamp.com/album/khimaira">Khimaira by Khimaira</a>
             </iframe>
         </div>
 
         <div className="flex flex-wrap justify-center gap-4 mb-20">
           <a
-            href="https://khimaira.bandcamp.com/album/khimaira"
+            href="https://fantaz.bandcamp.com/album/khimaira"
             target="_blank"
             className="bg-[var(--color-green)] text-[var(--color-blue)] font-bold py-2 px-6 rounded-lg hover:opacity-90 transition"
           >
