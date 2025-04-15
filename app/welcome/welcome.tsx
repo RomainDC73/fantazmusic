@@ -1,4 +1,4 @@
-import { Page } from "../components/page";
+import { Page } from "../components/Page";
 import { Link } from "react-router";
 import { useState, useEffect } from "react";
 import ScrollIndicator from "~/components/ScrollIndicator";

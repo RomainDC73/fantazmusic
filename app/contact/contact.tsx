@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Page } from "../components/page";
+import { Page } from "../components/Page";
 import BackToHome from "~/components/BackToHome";
 import Nav from "~/components/Nav";
 import Footer from "~/components/Footer";
@@ -81,9 +81,7 @@ export default function Contact() {
               type="text"
               name="firstName"
               placeholder="First Name"
-              value={formData.firstName}
-              onChange={handleChange}
-              className="flex-1 p-3 rounded-lg bg-white text-black placeholder-gray-500"
+              className="custom-placeholder w-full p-3 rounded-lg bg-[var(--color-beige)] text-[var(--color-blue)]"
               required
             />
             <input
@@ -92,7 +90,7 @@ export default function Contact() {
               placeholder="Last Name"
               value={formData.lastName}
               onChange={handleChange}
-              className="flex-1 p-3 rounded-lg bg-white text-black placeholder-gray-500"
+              className="custom-placeholder w-full p-3 rounded-lg bg-[var(--color-beige)] text-[var(--color-blue)]"
               required
             />
             <input
@@ -109,7 +107,7 @@ export default function Contact() {
             placeholder="Email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full p-3 rounded-lg bg-white text-black placeholder-gray-500"
+            className="custom-placeholder w-full p-3 rounded-lg bg-[var(--color-beige)] text-[var(--color-blue)]"
             required
           />
 
@@ -119,7 +117,7 @@ export default function Contact() {
             rows={6}
             value={formData.message}
             onChange={handleChange}
-            className="w-full p-3 rounded-lg bg-white text-black placeholder-gray-500"
+            className="custom-placeholder w-full p-3 rounded-lg bg-[var(--color-beige)] text-[var(--color-blue)]"
             required
           ></textarea>
 

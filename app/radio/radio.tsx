@@ -1,4 +1,4 @@
-import { Page } from "../components/page";
+import { Page } from "../components/Page";
 import BackToHome from "~/components/BackToHome";
 import Nav from "~/components/Nav";
 import Footer from "~/components/Footer";
@@ -28,7 +28,7 @@ export default function Radio() {
         <h2 className="text-2xl text-center mt-20 mb-10">
           Global Bazar! is Fantaz' monthly radioshow
         </h2>
-        {/* Ausha Player Ausha */}
+        {/* Ausha Player */}
         <div className="w-full">
           <iframe
             name="Ausha Podcast Player"
