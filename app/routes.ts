@@ -5,6 +5,7 @@ import { type RouteConfig,
 
 export default [
     index("routes/home.tsx"),
+    route("khimaira", "routes/khimaira.tsx"),
     route("eps", "routes/eps.tsx"),
     route("shows", "routes/shows.tsx"),
     route("videos", "routes/videos.tsx"),
