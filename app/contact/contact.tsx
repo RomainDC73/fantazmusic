@@ -5,48 +5,49 @@ import Nav from "~/components/Nav";
 import Footer from "~/components/Footer";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    message: "",
+  });
+
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
-  
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setStatus("sending");
-    const formData = new FormData(event.currentTarget);
-    const data = {
-      firstName: formData.get("firstName"),
-      lastName: formData.get("lastName"),
-      email: formData.get("email"),
-      message: formData.get("message"),
-    };
 
     try {
-      const res = await fetch("http://localhost:3000/contact", {
+      const res = await fetch("http://localhost:3001/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(formData),
       });
+
       if (res.ok) {
         setStatus("sent");
-        event.currentTarget.reset();
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          message: "",
+        });
       } else {
         setStatus("error");
       }
     } catch (error) {
       console.error("Error sending message:", error);
       setStatus("error");
-    }
-    if (status === "sent") {
-      alert("Message sent successfully!");
-    } else if (status === "error") {
-      alert("Error sending message. Please try again later.");
-    } else {
-      alert("Sending message...");
-      setTimeout(() => {
-        setStatus("idle");
-      }
-      , 2000
-      )
     }
   }
 
@@ -67,12 +68,14 @@ export default function Contact() {
           Let's get in touch!
         </h2>
 
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleSubmit}>
           <div className="flex flex-col md:flex-row gap-4">
             <input
               type="text"
               name="firstName"
               placeholder="First Name"
+              value={formData.firstName}
+              onChange={handleChange}
               className="flex-1 p-3 rounded-lg bg-white text-black placeholder-gray-500"
               required
             />
@@ -80,6 +83,8 @@ export default function Contact() {
               type="text"
               name="lastName"
               placeholder="Last Name"
+              value={formData.lastName}
+              onChange={handleChange}
               className="flex-1 p-3 rounded-lg bg-white text-black placeholder-gray-500"
               required
             />
@@ -89,6 +94,8 @@ export default function Contact() {
             type="email"
             name="email"
             placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
             className="w-full p-3 rounded-lg bg-white text-black placeholder-gray-500"
             required
           />
@@ -97,6 +104,8 @@ export default function Contact() {
             name="message"
             placeholder="Your message"
             rows={6}
+            value={formData.message}
+            onChange={handleChange}
             className="w-full p-3 rounded-lg bg-white text-black placeholder-gray-500"
             required
           ></textarea>
@@ -108,11 +117,16 @@ export default function Contact() {
           >
             {status === "sending" ? "Sending..." : "Send"}
           </button>
+
           {status === "sent" && (
-            <p className="text-green-400 text-sm text-center mt-4">Message sent successfully!</p>
+            <p className="text-green-400 text-sm text-center mt-4">
+              ✅ Message sent successfully!
+            </p>
           )}
           {status === "error" && (
-            <p className="text-red-400 text-sm text-center mt-4">Error sending message. Please try again later.</p>
+            <p className="text-red-400 text-sm text-center mt-4">
+              ❌ Error sending message. Please try again later.
+            </p>
           )}
         </form>
       </div>

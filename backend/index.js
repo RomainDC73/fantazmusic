@@ -6,50 +6,45 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = 3001;
 
 app.use(cors());
 app.use(express.json());
 
-// Transporteur nodemailer
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: parseInt(process.env.SMTP_PORT),
-  secure: false, // false car on utilise STARTTLS (port 587)
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
-
-// Route POST /api/contact
-app.post("/api/contact", async (req, res) => {
-  const { firstName, lastName, email, message } = req.body;
-
-  if (!firstName || !lastName || !email || !message) {
-    return res.status(400).json({ error: "All fields are required." });
-  }
-
-  try {
-    await transporter.sendMail({
-      from: `"${firstName} ${lastName}" <${email}>`,
-      to: process.env.TO_EMAIL,
-      subject: `Message from Fantaz contact form`,
-      text: message,
-      html: `
-        <p><strong>From:</strong> ${firstName} ${lastName} (${email})</p>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, "<br />")}</p>
-      `,
+// Route POST /contact
+app.post("/contact", async (req, res) => {
+    const { firstName, lastName, email, message } = req.body;
+  
+    const transporter = nodemailer.createTransport({
+      host: "ssl0.ovh.net",
+      port: 587,
+      secure: false,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
     });
-
-    res.status(200).json({ message: "Email sent successfully ✅" });
-  } catch (err) {
-    console.error("Erreur d'envoi :", err);
-    res.status(500).json({ error: "Failed to send email ❌" });
-  }
-});
-
+  
+    const mailOptions = {
+      from: `"fantazmusic.com" <${process.env.SMTP_USER}>`,
+      to: process.env.SMTP_USER,
+      replyTo: email,
+      subject: "📨 New message from Fantaz website contact form",
+      html: `
+        <p><strong>Nom:</strong> ${firstName} ${lastName}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong><br/>${message}</p>
+      `,
+    };
+  
+    try {
+      await transporter.sendMail(mailOptions);
+      res.status(200).json({ message: "Message envoyé avec succès" });
+    } catch (error) {
+      console.error("Erreur d'envoi :", error);
+      res.status(500).json({ message: "Erreur lors de l'envoi du message" });
+    }
+  });
 app.listen(PORT, () => {
   console.log(`✅ Server running on http://localhost:${PORT}`);
 });
