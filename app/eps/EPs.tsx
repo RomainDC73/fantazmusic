@@ -1,4 +1,4 @@
-import { Page } from "~/components/Page";
+import { Page } from "~/components/page";
 import Nav from "~/components/Nav";
 import BackToHome from "~/components/BackToHome";
 import EpCard from "~/components/EpCard";
