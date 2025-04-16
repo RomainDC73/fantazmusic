@@ -7,8 +7,12 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const corsOptions = {
+  origin: 'https://fantazmusic.vercel.app',
+  methods: ['GET', 'POST'],
+};
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Route POST /contact
