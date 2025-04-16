@@ -34,7 +34,7 @@ export default function Contact() {
     setStatus("sending");
 
     try {
-      const res = await fetch("http://localhost:3001/contact", {
+      const res = await fetch("https://fantazmusic-contact.onrender.com/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
