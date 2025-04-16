@@ -1,5 +1,5 @@
 import type { Route } from "./+types/eps";
-import Khimaira from "~/khimaira/Khimaira";
+import Khimaira from "~/khimaira/khimaira";
 
 export function meta({}: Route.MetaArgs) {
   return [
