@@ -8,7 +8,6 @@ export default function Videos() {
         <Page theme="dark">
         <BackToHome />
         <Nav />
-        {/* H1 Title */}
         <div
             className="absolute top-[120px] -left-5 rotate-[-5deg] bg-[var(--color-green)] text-[var(--color-blue)] rounded-lg px-10 py-3"
             style={{ width: "max-content" }}

@@ -23,7 +23,7 @@ export default function ScrollIndicator() {
           height="40"
           fill="none"
           viewBox="0 0 24 24"
-          stroke="currentColor" // Utilise la couleur définie par la classe parent
+          stroke="currentColor"
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
         </svg>

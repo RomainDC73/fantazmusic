@@ -21,7 +21,7 @@ export default function Nav() {
       {!isOpen && (
         <button
           className="fixed top-4 right-4 z-50 p-2 hover:opacity-80"
-          onClick={toggleMenu} // Ouvre le menu
+          onClick={toggleMenu}
           aria-label="Open menu"
         >
           <IoMenuOutline size={28} />
@@ -33,7 +33,7 @@ export default function Nav() {
         <div
           className={`fixed inset-0 z-40 flex flex-col items-center justify-center space-y-8 text-3xl font-light ${
             theme === "light" ? "bg-white text-[var(--color-beige)]" : "bg-black/90 text-[var(--color-beige)]"
-          }`} // Adjust background and text color based on theme
+          }`}
         >
           <button
             className="absolute top-4 right-4 hover:opacity-80"

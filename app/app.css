@@ -26,7 +26,7 @@ body {
 }
 
 .custom-placeholder::placeholder {
-  font-weight: 100; /* équivalent à font-thin */
+  font-weight: 100;
   font-style: italic;
   color: var(--color-blue);
 }

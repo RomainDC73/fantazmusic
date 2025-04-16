@@ -26,7 +26,7 @@ export default function Khimaira() {
 
         <div className="mb-12">
           <img
-            src="https://f4.bcbits.com/img/0038805910_36.jpg"
+            src="/assets/Fantaz_Khimaira_Vinyl_Cover_low.png"
             alt="Khimaira album cover"
             width={600}
             height={600}
@@ -38,6 +38,7 @@ export default function Khimaira() {
                 style={{ border: "0", width: "100%", height: "472px" }}
                 src="https://bandcamp.com/EmbeddedPlayer/album=1353007484/size=large/bgcol=ffffff/linkcol=63b2cc/artwork=none/transparent=true/"
                 seamless
+                className="rounded-lg"
             >
                 <a href="https://fantaz.bandcamp.com/album/khimaira">Khimaira by Khimaira</a>
             </iframe>
