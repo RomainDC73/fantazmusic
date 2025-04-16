@@ -8,7 +8,6 @@ export default [
     route("khimaira", "routes/khimaira.tsx"),
     route("eps", "routes/eps.tsx"),
     route("shows", "routes/shows.tsx"),
-    route("videos", "routes/videos.tsx"),
     route("radio", "routes/radio.tsx"),
     route("contact", "routes/contact.tsx"),
 
