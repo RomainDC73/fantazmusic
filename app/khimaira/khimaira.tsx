@@ -1,4 +1,4 @@
-import { Page } from "../components/Page";
+import { Page } from "~/components/Page";
 import Nav from "~/components/Nav";
 import BackToHome from "~/components/BackToHome";
 import Footer from "~/components/Footer";
