@@ -38,7 +38,7 @@ export default function Khimaira() {
                 style={{ border: "0", width: "100%", height: "472px" }}
                 src="https://bandcamp.com/EmbeddedPlayer/album=1353007484/size=large/bgcol=ffffff/linkcol=63b2cc/artwork=none/transparent=true/"
                 seamless
-                className="rounded-lg"
+                className="rounded-2xl"
             >
                 <a href="https://fantaz.bandcamp.com/album/khimaira">Khimaira by Khimaira</a>
             </iframe>
