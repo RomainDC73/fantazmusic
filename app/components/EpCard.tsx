@@ -15,7 +15,8 @@ const EpCard: FC<EpCardProps> = ({ title, year, cover, bandcampEmbedUrl, listenL
       <div className="w-1/3">
         <img
           src={cover}
-          alt={title}
+          alt={`${title} EP Cover by Fantaz`}
+          aria-label={`${title} EP Cover by Fantaz`}
           className="w-full h-auto object-cover rounded-lg"
           style={{
             boxShadow: "-8px -8px var(--color-beige)",
@@ -42,6 +43,7 @@ const EpCard: FC<EpCardProps> = ({ title, year, cover, bandcampEmbedUrl, listenL
           href={listenLink}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={`Listen or buy ${title} EP by Fantaz`}
           className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-[var(--color-green)] text-[var(--color-blue)] hover:brightness-110 transition w-auto self-start"
         >
           <svg

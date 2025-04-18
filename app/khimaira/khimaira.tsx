@@ -48,6 +48,8 @@ export default function Khimaira() {
           <a
             href="https://fantaz.bandcamp.com/album/khimaira"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Buy the Khimaira album on Bandcamp"
             className="bg-[var(--color-green)] text-[var(--color-blue)] font-bold py-2 px-6 rounded-lg hover:opacity-90 transition"
           >
             Buy the album
@@ -55,6 +57,8 @@ export default function Khimaira() {
           <a
             href="https://music.apple.com/album/..."
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Listen to the Khimaira album on your favorite platform"
             className="bg-[var(--color-green)] text-[var(--color-blue)] font-bold py-2 px-6 rounded-lg hover:opacity-90 transition"
           >
             Listen
