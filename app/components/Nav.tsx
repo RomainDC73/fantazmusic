@@ -1,19 +1,22 @@
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import { Link } from "react-router";
-import { IoMenuOutline } from "react-icons/io5"; // Icône hamburger
-import { LiaTimesSolid } from "react-icons/lia"; // Icône fermer
-import { sections } from "~/data/sections"; // Import des sections
+import { IoMenuOutline } from "react-icons/io5";
+import { LiaTimesSolid } from "react-icons/lia";
+import { sections } from "~/data/sections";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const [theme, setTheme] = useState<"light" | "dark">("dark"); // Default theme
 
   // Function to toggle the menu open/close
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  // Detect active theme
-  const theme = document.body.classList.contains("theme-light") ? "light" : "dark";
+  useEffect(() => {
+    const detectedTheme = document.body.classList.contains("theme-light") ? "light" : "dark";
+    setTheme(detectedTheme);
+  }, []);
 
   return (
     <>
