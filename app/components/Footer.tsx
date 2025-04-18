@@ -14,13 +14,13 @@ export default function Footer() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          <a href="https://www.instagram.com/fantazfantaz/" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/fantazfantaz/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <FaInstagram className="w-8 h-8 hover:text-[var(--color-beige)] transition-colors" />
           </a>
-          <a href="https://www.facebook.com/fantazmusic/" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/fantazmusic/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
             <FaFacebook className="w-8 h-8 hover:text-[var(--color-beige)] transition-colors" />
           </a>
-          <a href="https://www.youtube.com/@fantazmusic" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.youtube.com/@fantazmusic" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
             <FaYoutube className="w-8 h-8 hover:text-[var(--color-beige)] transition-colors" />
           </a>
         </motion.div>
