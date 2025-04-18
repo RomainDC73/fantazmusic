@@ -65,12 +65,12 @@ export default function Welcome() {
   useEffect(() => {
     const randomLetters = Array.from({ length: 25 }, () => ({
       char: letters[Math.floor(Math.random() * letters.length)],
-      top: Math.random() * 100, // % vertical
-      left: Math.random() * 100, // % horizontal
-      rotate: Math.random() * 60 - 30, // -30° to +30°
-      opacity: Math.random() * 0 + 0.02, // 0.05 to 0.15
-      size: Math.random() * 8 + 6, // text-6xl to text-[14xl]
-      duration: 6 + Math.random() * 4, // 6s to 10s
+      top: Math.random() * 100,
+      left: Math.random() * 100,
+      rotate: Math.random() * 60 - 30,
+      opacity: Math.random() * 0 + 0.02,
+      size: Math.random() * 8 + 6,
+      duration: 6 + Math.random() * 4,
     }));
     setBgLetters(randomLetters);
   }, []);
