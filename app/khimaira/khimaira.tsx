@@ -21,7 +21,7 @@ export default function Khimaira() {
           <b>Khimaira</b> is Fantaz' first full-length album.
         </p>
         <p className="text-lg font-thin mb-10">
-          Available on vinyl and digital platforms.
+          Available on vinyl and digital platforms, April 25th, 2025.
         </p>
 
         <div className="mb-12">
