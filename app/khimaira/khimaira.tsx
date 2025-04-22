@@ -18,9 +18,9 @@ export default function Khimaira() {
 
       <div className="mt-60 px-4 max-w-3xl mx-auto text-center">
         <p className="text-xl font-thin">
-          "Khimaira" is Fantaz' first full-length album.
+          <b>Khimaira</b> is Fantaz' first full-length album.
         </p>
-        <p className="text-sm font-thin mb-10">
+        <p className="text-lg font-thin mb-10">
           Available on vinyl and digital platforms.
         </p>
 
