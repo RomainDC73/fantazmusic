@@ -52,10 +52,10 @@ export default function Khimaira() {
             aria-label="Buy the Khimaira album on Bandcamp"
             className="bg-[var(--color-green)] text-[var(--color-blue)] font-bold py-2 px-6 rounded-lg hover:opacity-90 transition"
           >
-            Buy the album
+            Buy the vinyl
           </a>
           <a
-            href="https://music.apple.com/album/..."
+            href="http://li.sten.to/fantaz_khimaira"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Listen to the Khimaira album on your favorite platform"
