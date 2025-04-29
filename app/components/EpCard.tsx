@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import { useState } from "react";
 
 type EpCardProps = {
   title: string;
@@ -9,6 +10,8 @@ type EpCardProps = {
 };
 
 const EpCard: FC<EpCardProps> = ({ title, year, cover, bandcampEmbedUrl, listenLink }) => {
+  const [loading, setLoading] = useState(true);
+
   return (
     <div className="flex flex-row w-full max-w-4xl lg:max-w-3xl xl:max-w-2xl mx-auto mt-12 p-4 lg:p-3 gap-6">
       {/* Cover image */}
@@ -30,12 +33,29 @@ const EpCard: FC<EpCardProps> = ({ title, year, cover, bandcampEmbedUrl, listenL
           <h2 className="text-2xl font-bold">{title}</h2>
           <p className="text-sm text-[var(--color-beige)] font-thin italic opacity-70">{year}</p>
 
+          {loading && (
+            <div className="flex items-center space-x-2 mb-2">
+              <svg
+                className="animate-spin h-4 w-4 text-[var(--color-beige)]"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <circle cx="12" cy="12" r="10" stroke="currentColor" />
+                <path d="M2 12a10 10 0 1 1 20 0" />
+              </svg>
+              <span className="text-xs font-thin">Loading player…</span>
+            </div>
+          )}
+
           <iframe
             className="rounded-lg"
             style={{ border: 0, width: "100%", height: 60 }}
             src={bandcampEmbedUrl}
             seamless
             title={`Lecteur Bandcamp - ${title}`}
+            onLoad={() => setLoading(false)}
           />
         </div>
 
