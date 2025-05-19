@@ -19,14 +19,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
         {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCJ7DM3QQ7"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4F1NHLXLXR"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-KCJ7DM3QQ7');
+              gtag('config', 'G-4F1NHLXLXR');
             `,
           }}
         />
