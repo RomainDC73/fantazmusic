@@ -9,6 +9,7 @@ export default [
     route("eps", "routes/eps.tsx"),
     route("shows", "routes/shows.tsx"),
     route("radio", "routes/radio.tsx"),
+    route("videos", "routes/videos.tsx"),
     route("contact", "routes/contact.tsx"),
 
 

@@ -3,7 +3,7 @@ import Contact from "~/contact/contact";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Radio - FANTAZ" },
+    { title: "Contact - FANTAZ" },
     { name: "description", content: "Contact Fantaz" },
     { name: "keywords", content: "Fantaz, music, contact, artist, live, remix" },
     { name: "robots", content: "index, follow" },

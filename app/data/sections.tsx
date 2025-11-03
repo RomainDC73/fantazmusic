@@ -4,6 +4,7 @@ export const sections = [
     { name: "EPs", path: "/eps", color: "var(--color-beige)" },
     { name: "Shows", path: "/shows", color: "var(--color-green)" },
     { name: "Radio", path: "/radio", color: "var(--color-beige)" },
-    { name: "Contact", path: "/contact", color: "var(--color-green)" },
+    { name: "Videos", path: "/videos", color: "var(--color-green)" },
+    { name: "Contact", path: "/contact", color: "var(--color-beige)" },
   ];
   

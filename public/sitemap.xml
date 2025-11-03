@@ -32,6 +32,12 @@
     </url>
 
     <url>
+        <loc>https://fantazmusic.com/videos</loc>
+        <lastmod>2025-11-03</lastmod>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
         <loc>https://fantazmusic.com/contact</loc>
         <lastmod>2025-04-16</lastmod>
         <priority>0.8</priority>
