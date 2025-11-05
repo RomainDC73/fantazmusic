@@ -81,6 +81,8 @@ export default function Contact() {
               type="text"
               name="firstName"
               placeholder="First Name"
+              value={formData.firstName}
+              onChange={handleChange}
               className="custom-placeholder w-full p-3 rounded-lg bg-[var(--color-beige)] text-[var(--color-blue)]"
               required
             />
