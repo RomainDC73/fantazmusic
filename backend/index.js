@@ -9,12 +9,25 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const corsOptions = {
-  origin: 'https://www.fantazmusic.com',
-  methods: ['GET', 'POST'],
-};
+const allowedOrigins = [
+  'https://www.fantazmusic.com',
+  'http://localhost:5173',
+  'http://localhost:5174',
+];
 
-app.use(cors(corsOptions));
+app.use(
+  cors({  
+    origin: function (origin, callback) {
+      // allow requests with no origin 
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: ["GET", "POST"],
+  })
+);
 app.use(express.json());
 
 // Route POST /contact
