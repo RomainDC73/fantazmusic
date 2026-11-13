@@ -2,16 +2,8 @@ import { Page } from "~/components/page";
 import BackToHome from "~/components/BackToHome";
 import Nav from "~/components/Nav";
 import Footer from "~/components/Footer";
-import { useEffect } from "react";
 
 export default function Radio() {
-    useEffect(() => {
-        const script = document.createElement("script");
-        script.src = "https://player.ausha.co/ausha-player.js";
-        script.async = true;
-        document.body.appendChild(script);
-    }, []);
-
   return (
     <Page theme="light">
       <BackToHome />
@@ -28,20 +20,18 @@ export default function Radio() {
         <h2 className="text-2xl text-center mt-20 mb-10">
           Global Bazar! is Fantaz' monthly radioshow
         </h2>
-        {/* Ausha Player */}
+        {/* Acast Player */}
         <div className="w-full">
           <iframe
-            name="Ausha Podcast Player"
+            title="Global Bazar! sur Acast"
+            src="https://embed.acast.com/6a189ded847a83997eb8fd00?theme=light&feed=true"
             frameBorder="0"
             loading="lazy"
-            id="ausha-YW8R"
-            height="420"
-            style={{ border: "none", width: "100%", height: "420px" }}
-            src="https://player.ausha.co/?showId=ZGQgYiGmGwpM&color=%23C5D86D&playlist=true&dark=true&v=3&playerId=ausha-YW8R"
+            style={{ border: "none", width: "100%", height: "630px" }}
           ></iframe>
         </div>
-        </div>
-    <Footer />
+      </div>
+      <Footer />
     </Page>
   );
 }
