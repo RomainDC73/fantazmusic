@@ -1,9 +1,8 @@
-import { FaInstagram, FaFacebook, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaFacebook, FaYoutube, FaEnvelope } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  
   return (
     <footer className="py-6 mt-32">
       <div className="container mx-auto text-center">
@@ -23,8 +22,11 @@ export default function Footer() {
           <a href="https://www.youtube.com/@fantazmusic" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
             <FaYoutube className="w-8 h-8 hover:text-[var(--color-beige)] transition-colors" />
           </a>
+          <a href="mailto:hello@fantazmusic.com" aria-label="Envoyer un e-mail">
+            <FaEnvelope className="w-8 h-8 hover:text-[var(--color-beige)] transition-colors" />
+          </a>
         </motion.div>
-  
+
         <p className="font-thin text-xs mt-4">© {currentYear} Fantaz. All rights reserved.</p>
         <p className="font-thin text-xs">Made by Fantaz with his bare fucking hands.👋</p>
       </div>
