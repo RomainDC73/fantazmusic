@@ -1,4 +1,4 @@
-import { FaInstagram, FaFacebook, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaFacebook, FaYoutube, FaEnvelope } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 export default function Social({ visible }: { visible: boolean }) {
@@ -22,6 +22,9 @@ export default function Social({ visible }: { visible: boolean }) {
         </a>
         <a href="https://www.youtube.com/@fantazmusic" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
           <FaYoutube className="w-8 h-8 hover:text-[var(--color-beige)] transition-colors" />
+        </a>
+        <a href="mailto:hello@fantazmusic.com" aria-label="Envoyer un e-mail">
+            <FaEnvelope className="w-8 h-8 hover:text-[var(--color-beige)] transition-colors" />
         </a>
       </div>
     </motion.div>
