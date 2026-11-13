@@ -10,7 +10,6 @@ export default [
     route("shows", "routes/shows.tsx"),
     route("radio", "routes/radio.tsx"),
     route("videos", "routes/videos.tsx"),
-    route("contact", "routes/contact.tsx"),
 
 
 ] satisfies RouteConfig;
